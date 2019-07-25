@@ -1,0 +1,11 @@
+.idea
+.next
+.vscode
+dist
+coverage
+node_modules
+.DS_Store
+*.log
+*.map
+.cache
+.awcache
