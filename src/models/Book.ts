@@ -1,7 +1,7 @@
-import {Schema} from "mongoose";
+import {Schema, model} from "mongoose";
 
 
-export const BookSchema: Schema = new Schema({
+export const BookSchema = new Schema({
     id: String,
     isbn: String,
     title: String,
@@ -11,3 +11,5 @@ export const BookSchema: Schema = new Schema({
     publisher: String,
     updated_date: { type: Date, default: Date.now },
 });
+
+export const BookModel = model("Book", BookSchema);
