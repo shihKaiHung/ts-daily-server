@@ -4,6 +4,8 @@ import * as cors from "cors";
 import {GraphQLID, GraphQLList, GraphQLObjectType, GraphQLSchema, GraphQLString} from "graphql";
 import * as mongoose from "mongoose";
 import {schema} from "./graphql/bookSchemas";
+import bodyParser = require("body-parser");
+import {graphqlExpress} from "apollo-server-express/dist/expressApollo";
 
 const app = Express();
 
@@ -30,12 +32,26 @@ mongoose.connection.once('open', () => {
     console.log('conneted to database');
 });
 
-app.use("*", cors())
-app.use("/graphql", cors(),graphqlHttp({
+// app.use("*", cors());
+app.use("/graphql", bodyParser.json() ,graphqlExpress({
     schema: schema,
-    graphiql: true
+    rootValue: global,
 }));
+// app.get('/graphiql', graphiqlExpress({ endpointURL: '/graphql' }))
 
-app.listen(3000, () => {
+app.listen(3300, () => {
     console.log("Listening at :3000");
 });
+
+// Apollo Server
+// const server = new  ApolloServer({
+//     schema,
+//     formatError: error => {
+//         console.error(error);
+//         return error;
+//     },
+//     playground: true,
+// });
+// server.listen(3300).then(({ url }) => {
+//     console.log(`🚀  Server ready at ${url}`);
+// });
