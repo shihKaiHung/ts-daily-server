@@ -19,7 +19,7 @@
     "@types/graphql": "^14.2.3",
     "@types/graphql-date": "^1.0.3",
     "@types/mongoose": "^5.5.9",
-    "apollo-server": "^2.8.0",
+    "apollo-server": "^2.14.2",
     "apollo-server-express": "^2.8.0",
     "cors": "^2.8.5",
     "graphql-date": "^1.0.3",
